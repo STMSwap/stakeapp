@@ -103,6 +103,20 @@ const NetworkSelect = ({ account: { currentChain } }) => {
           onChange={({ target: { value } }) => handleChange(value)}
         >
           <MenuItem
+            value={currentConnection === "testnet" ? 1442: 1101}
+            className={classes.buttonDrop}
+          >
+            <span className={classes.networkName}>PolygonzkEvm</span>
+            <img className={classes.imgIcon} src="https://i.ibb.co/rGJ8WyX/eth-logo.png" />
+          </MenuItem>
+          <MenuItem
+            value={currentConnection === "testnet" ? 91002: 91002}
+            className={classes.buttonDrop}
+          >
+            <span className={classes.networkName}>Nautilus</span>
+            <img className={classes.imgIcon} src="https://i.ibb.co/4dCffp7/icon.webp" />
+          </MenuItem>
+          <MenuItem
             value={currentConnection === "testnet" ? 42 : 1}
             className={classes.buttonDrop}
           >

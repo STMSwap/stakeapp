@@ -1,4 +1,8 @@
 export default {
+  nautilusChainTestnet: 91002,
+  nautilus_rpc_testnet: "https://triton.api.nautchain.xyz",
+  polygon_zkevm_testnet:1442,
+  polygonzkevm_rpc_testnet:"https://rpc.public.zkevm-test.net",
   chainId: 1,
   chainIdTestnet: 42,
   bscChain: 56,

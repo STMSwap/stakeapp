@@ -1,4 +1,8 @@
 // Array of available nodes to connect to
+
+export const nautNodes = [
+  "https://triton.api.nautchain.xyz"
+]
 export const bscNodes = [
   "https://bsc-dataseed.binance.org/",
   "https://bsc-dataseed1.defibit.io/",
@@ -23,6 +27,11 @@ export const polygonNodesTestnet = [
   "https://rpc-mumbai.maticvigil.com",
   "https://matic-testnet-archive-rpc.bwarelabs.com",
 ];
+export const polygonZKevmNodesTestnet = [
+  "https://rpc.public.zkevm-test.net",
+  
+];
+
 
 export const harmonyNodes = ["https://api.harmony.one"];
 export const arbitrumNodes = [

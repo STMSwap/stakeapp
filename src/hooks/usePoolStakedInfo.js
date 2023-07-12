@@ -4,7 +4,7 @@ import useActiveWeb3React from "./useActiveWeb3React";
 import useBlockNumber from "./useBlockNumber";
 import { readContract } from "@wagmi/core";
 
-import STAKE_ABI from "../contracts/abi/PolkaBridgeStaking.json";
+import STAKE_ABI from "../contracts/abi/polygonEVMStaking.json";
 import { STAKE_ADDRESSES } from "../constants/index";
 
 export function usePoolStakedInfo(poolId, poolToken, selectedChain) {

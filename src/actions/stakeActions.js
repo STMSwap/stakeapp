@@ -14,7 +14,7 @@ import { stakeContract, erc20TokenContract } from "../contracts/connections";
 import { toWei, getCurrentAccount, getApy } from "../utils/helper";
 import BigNumber from "bignumber.js";
 import config from "../config";
-import { AOG, tokenContarctAddresses, STAKE_ADDRESSES } from "../constants";
+import { LEUM, tokenContarctAddresses, STAKE_ADDRESSES } from "../constants";
 
 // Note: these functions has been depricated
 export const fetchPbrMarketData = () => async (dispatch) => {
@@ -141,7 +141,7 @@ export const confirmAllowance =
         payload: loadingObj,
       });
 
-      const stakeContractAddress = STAKE_ADDRESSES?.[chainId];
+      const stakeContractAddress = STAKE_ADDRESSES?.[1442];
 
       await tokenContract.approve(stakeContractAddress, balance);
 

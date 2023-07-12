@@ -7,7 +7,60 @@ import {
   harmonyNodesTestnet,
   polygonNodes,
   polygonNodesTestnet,
+  polygonZKevmNodesTestnet
 } from "./rpcUrl";
+
+
+export const nautNetworkDetail = {
+  mainnet: {
+    chainId: `0x${config.nautilus_chain_testnet.toString(16)}`,
+    chainName: 'Nautilus Triton Testnet',
+    nativeCurrency: {
+      name: 'Nautilus Triton Testnet',
+      symbol: 'ZBC',
+      decimals: 18,
+    },
+    rpcUrls: nautNodes,
+    blockExplorerUrls: [`https://triton.nautscan.com/`],
+  },
+  testnet: {
+    chainId: `0x${config.nautilus_chain_testnet.toString(16)}`,
+    chainName: 'Nautilus Triton Testnet',
+    nativeCurrency: {
+      name: 'Nautilus Triton Testnet',
+      symbol: 'ZBC',
+      decimals: 18,
+    },
+    rpcUrls: nautNodes,
+    blockExplorerUrls: [`https://triton.nautscan.com/`],
+  },
+}
+
+
+export const polygonzkevmNetworkDetail = {
+  mainnet: {
+    chainId: `0x${config.polygon_zkevm_testnet.toString(16)}`,
+    chainName: 'Polygon ZkEvm',
+    nativeCurrency: {
+      name: 'Polygon ZkEvm',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+    rpcUrls: polygonZKevmNodesTestnet,
+    blockExplorerUrls: [`https://testnet-zkevm.polygonscan.com/`],
+  },
+  testnet: {
+    chainId: `0x${config.polygon_zkevm_testnet.toString(16)}`,
+    chainName: 'Polygon ZkEvm',
+    nativeCurrency: {
+      name: 'Polygon ZkEvm',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+    rpcUrls: polygonZKevmNodesTestnet,
+    blockExplorerUrls: [``],
+  },
+}
 
 export const bscNetworkDetail = {
   mainnet: {

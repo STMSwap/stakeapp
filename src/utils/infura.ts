@@ -24,4 +24,6 @@ export const INFURA_NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.POLYGON_MUMBAI]: `https://polygon-mumbai.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.BSC]: `https://rpc.ankr.com/bsc`,
   [SupportedChainId.BSC_TESTNET]: ``,
+  [SupportedChainId.POLYGON_ZKEVM]: `https://rpc.public.zkevm-test.net`,
+  [SupportedChainId.NAUTILUS_TEST]: `https://triton.api.nautchain.xyz`,
 };

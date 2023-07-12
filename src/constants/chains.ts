@@ -1,3 +1,5 @@
+import { polygonZkEvm } from "wagmi/dist/chains";
+
 export enum SupportedChainId {
   MAINNET = 1,
   ROPSTEN = 3,
@@ -16,6 +18,8 @@ export enum SupportedChainId {
 
   POLYGON = 137,
   POLYGON_MUMBAI = 80001,
+  NAUTILUS_TEST = 91002,
+  POLYGON_ZKEVM = 1442
 }
 
 export const CHAIN_IDS_TO_NAMES = {
@@ -25,6 +29,8 @@ export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.POLYGON]: "polygon",
   [SupportedChainId.POLYGON_MUMBAI]: "polygon_mumbai",
   [SupportedChainId.ARBITRUM_ONE]: "arbitrum",
+  [SupportedChainId.NAUTILUS_TEST]: "nautilus_testnet",
+  [SupportedChainId.POLYGON_ZKEVM]: "polygon_zkevm",
 };
 
 export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = Object.values(
@@ -32,12 +38,15 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = Object.values(
 ).filter((id) => typeof id === "number") as SupportedChainId[];
 
 export const MULTICALL_ADDRESS: { [index: string]: string } = {
+  91002: "0x0898CDBc7e0962eE48E39CFc3cfCa0E421C6EadA",
   1: "0x3a2Bd96Da4B14C30918aE0fC0E784E2F56120F1d",
   4: "0x6c4f9282bBD29992bF4F064F0165e805336Eef59",
   97: "0x688EC8C059592104fC713E0dA9276e649302C4Ab",
   56: "0x6e568FcE995F5c7ddaFB8C0b74B3241328498F8A",
   137: "0xbfB508313126cf61CFb3BD7e570cC79C67998A53",
   42161: "0x0D6ae2a429df13e44A07Cd2969E085e4833f64A0",
+  1442: ""
+
 };
 
 export const NATIVE_TOKEN: { [index: number]: string } = {
@@ -47,6 +56,8 @@ export const NATIVE_TOKEN: { [index: number]: string } = {
   56: "BNB",
   137: "MATIC",
   80001: "MATIC",
+  1442: 'ETH',
+  91002: "ZBC",
   1666600000: "ONE",
   1666700000: "ONE",
   42161: "ETH",

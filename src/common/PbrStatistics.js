@@ -136,7 +136,7 @@ const PbrStatistics = ({
             <div className="d-flex justify-content-center">
               <Avatar className={classes.logo} src="./img/symbol.png" />
             </div>
-            <h6 className={classes.title}>PBR Statistics</h6>
+            <h6 className={classes.title}>LEUM Statistics</h6>
             <div className="d-flex justify-content-center align-items-center">
               <div
                 style={{

@@ -18,6 +18,9 @@ export default function useActiveWeb3React() {
       provider: provider,
       signer: signer,
     };
-  }, [address, isConnected, connector, chain, provider, signer]);
+  }, [address, isConnected, connector, provider, signer]);
   return interfaceContext;
 }
+
+
+

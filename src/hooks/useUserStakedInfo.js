@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useBlockNumber from "./useBlockNumber";
-import STAKE_ABI from "../contracts/abi/PolkaBridgeStaking.json";
+import STAKE_ABI from "../contracts/abi/polygonEVMStaking.json";
 import { STAKE_ADDRESSES } from "../constants/index";
 import useActiveWeb3React from "./useActiveWeb3React";
 import { readContracts } from "wagmi";

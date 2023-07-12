@@ -11,9 +11,10 @@ import useBlockNumber from "./useBlockNumber";
 export function useTokenAllowance(token, owner, spender) {
   const { chainId } = useActiveWeb3React();
   const [data, setData] = useState({ hash: "", status: "" });
-  const [approved, setApproved] = useState(false);
+  const [approved, setApproved] = useState(true);
 
   const tokenBalance = useTokenBalance(token?.address);
+  // const tokenBalance = useTokenBalance(tokenAddresses);
   const blockNumber = useBlockNumber();
 
   const checkApproval = useCallback(
@@ -49,10 +50,11 @@ export function useTokenAllowance(token, owner, spender) {
     checkApproval(tokenBalance, token, owner, spender);
   }, [tokenBalance, token, owner, spender, checkApproval, blockNumber]);
 
+
   const confirmAllowance = useCallback(
     async (balance) => {
       try {
-        const stakeContractAddress = STAKE_ADDRESSES?.[chainId || 1];
+        const stakeContractAddress = STAKE_ADDRESSES?.[chainId || 1442];
 
         setData({ ...data, status: "waiting" });
 
@@ -110,3 +112,4 @@ export function useTokenAllowance(token, owner, spender) {
     transactionStatus: transactionStatus,
   };
 }
+

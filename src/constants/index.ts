@@ -1,7 +1,9 @@
-const testing = false;
+const testing = true;
 export const currentConnection = testing ? "testnet" : "mainnet";
 
 export const STAKE_ADDRESSES: { [index: number]: string } = {
+  1442: "0x21D5E15aD4C86Ca7239380CFB8D53bFe6BD79aEe",
+  91002: "0x44D882b4954C747E62067cf3A1C18cd9e98E58FB",
   1: "0x1b46b72c5280f30Fbe8A958B4f3c348FD0fD2E55",
   42: "0x7678f0AF7304e01554E2D49D96E55C8de4975c66",
   137: "0x6335aF028e77B574423733443678aD4cb9e15B3D",
@@ -14,6 +16,13 @@ export const STAKE_ADDRESSES: { [index: number]: string } = {
 };
 
 export const tokenAddresses = {
+  $TORM:{
+    1442: "0xCD1FfF5FcDE62bEFDc1a7E3Ddf6E166fA24f7B98"
+  },
+
+  LEUM: {
+    91002: "0xcD3DFd5388d016Db8805253AC6187E255885e8d2"
+  },
   PBR: {
     1: "0x298d492e8c1d909D3F63Bc4A36C66c64ACB3d695", // mainnet
     42: "0x0D6ae2a429df13e44A07Cd2969E085e4833f64A0", // koven
@@ -71,6 +80,20 @@ export const tokenAddresses = {
 };
 
 export const tokenContarctAddresses = {
+  EVM: {
+    LEUM:
+    currentConnection === "testnet"
+      ? "0xcD3DFd5388d016Db8805253AC6187E255885e8d2"
+      : "0xcD3DFd5388d016Db8805253AC6187E255885e8d2",
+  },
+  polygonEvm: {
+    $TORM: 
+  currentConnection === "testnet"
+  ? "0xCD1FfF5FcDE62bEFDc1a7E3Ddf6E166fA24f7B98"
+  : "0xCD1FfF5FcDE62bEFDc1a7E3Ddf6E166fA24f7B98",
+
+  },
+  
   ethereum: {
     PBR:
       currentConnection === "mainnet"
@@ -98,6 +121,7 @@ export const tokenContarctAddresses = {
         : "0x0D6ae2a429df13e44A07Cd2969E085e4833f64A0",
   },
   matic: {
+   
     PBR:
       currentConnection === "mainnet"
         ? "0x0D6ae2a429df13e44A07Cd2969E085e4833f64A0"
@@ -137,6 +161,7 @@ export const tokenContarctAddresses = {
   },
 };
 
+export const LEUM = "LEUM";
 export const PBR = "PBR";
 export const BITE = "BITE";
 export const CORGIB = "CORGIB";
@@ -150,8 +175,12 @@ export const DEFLY = "DEFLY";
 export const AOG = "AOG";
 export const LABS = "LABS";
 export const AIBB = "AIBB";
+export const $TORM = "$TORM";
+
 
 export const tokenLogo = {
+  $TORM: "https://i.ibb.co/3YgWvQf/stormswap.jpg",
+  LEUM: "https://i.ibb.co/9nFB5Mq/dyleumresize.png",
   PBR: "img/symbol.png",
   BITE: "img/bite.png",
   CORGIB: "img/corgi.png",
@@ -168,6 +197,8 @@ export const tokenLogo = {
 };
 
 export const tokenName = {
+  $TORM : "Storm Token",
+  LEUM: "Dyleum Token",
   PBR: "PolkaBridge",
   BITE: "DragonBite",
   CORGIB: "Corgi Of PolkaBridge",
@@ -184,6 +215,19 @@ export const tokenName = {
 };
 
 export const tokenInfo = {
+  LEUM: {
+    91002: {
+
+    },
+  },
+    $TORM: {
+      1442:{
+        buy: "https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xCD1FfF5FcDE62bEFDc1a7E3Ddf6E166fA24f7B98",
+      info: "https://www.coingecko.com/en/coins/polkabridge",
+
+      }
+
+    },
   PBR: {
     1: {
       buy: "https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0x298d492e8c1d909d3f63bc4a36c66c64acb3d695",
@@ -328,6 +372,12 @@ export const tokenInfo = {
 export const POOL_ID_MAPPINGS: {
   [index: number]: { [index: string]: number };
 } = {
+  91002: {
+    LEUM: 0
+  },
+  1442: {
+    $TORM: 0
+  },
   1: {
     PBR: 0,
     BITE: 1,
@@ -351,9 +401,23 @@ export const POOL_ID_MAPPINGS: {
   42161: {
     AIBB: 0,
   },
+  
 };
 
 export const apyConstants = {
+ nautilus:{
+  LEUM: {
+    NUMBER_BLOCKS_PER_YEAR: 10220000,
+    AVG_REWARD_PER_BLOCK: 0.15,
+  }
+ },
+ polygonzkevm:{
+  $TORM: {
+    NUMBER_BLOCKS_PER_YEAR: 10220000,
+    AVG_REWARD_PER_BLOCK: 0.15,
+ }
+  
+  },
   ethereum: {
     PBR: {
       NUMBER_BLOCKS_PER_YEAR: 2400000,
@@ -433,6 +497,7 @@ export const apyConstants = {
 export const tokenPriceConstants = {
   DEFLY: 0.06,
   AOG: 0.3,
+  
   // AIBB: 0.0000000007,
 };
 
@@ -455,6 +520,8 @@ export const bscNetwork = "bsc";
 export const maticNetwork = "matic";
 export const harmonyNetwork = "harmony";
 export const arbitrum = "arbitrum";
+export const nautilusTestNetwork = "nautilusTest";
+export const polygonZkEvmTestnetNetwork = "polygonZkEvmTestnetNetwork";
 
 export const etherConfig = {
   network_id: {
@@ -464,6 +531,8 @@ export const etherConfig = {
 };
 
 export const supportedChainIds = [
+  91002,
+  1442,
   1,
   42,
   56,
@@ -475,6 +544,24 @@ export const supportedChainIds = [
   5,
 ];
 
+
+export const nautilusTestConfig = {
+  network_id: {
+    mainnet: "91002",
+    testnet: "91002",
+  },
+  network_rpc_mainnet: "https://triton.api.nautchain.xyz",
+  network_rpc_testnet: "https://triton.api.nautchain.xyz",
+};
+
+export const polygonzkevmTestConfig = {
+  network_id: {
+    mainnet: "1101",
+    testnet: "1442",
+  },
+  network_rpc_mainnet: "",
+  network_rpc_testnet: "https://rpc.public.zkevm-test.net",
+};
 export const bscConfig = {
   network_id: {
     mainnet: "56",
@@ -500,9 +587,11 @@ export const harmonyConfig = {
 };
 export const claimTokens = "1";
 
-export const supportedNetworks = ["1", "56", "137"];
+export const supportedNetworks = ["1", "56", "137", "91002", "1442"];
 
 export const supportedStaking = {
+  1442: [$TORM],
+  91002: [LEUM],
   1: [PBR],
   42: [PBR, LABS],
   56: [PBR, PWAR],
@@ -525,6 +614,8 @@ export const unsupportedStaking = {
 };
 
 export const minimumStakingAmount = {
+  $TORM: 1,
+  LEUM: 1,
   CORGIB: 100000000,
   BITE: 1,
   PBR: 1,
@@ -544,6 +635,8 @@ export const minimumUnstakeAmount = {
 };
 
 export const ankrRpc = {
+  1442: "https://rpc.public.zkevm-test.net",
+  91002:"https://triton.api.nautchain.xyz",
   1: "https://rpc.ankr.com/eth",
   137: "https://rpc.ankr.com/polygon",
   56: "https://rpc.ankr.com/bsc",
@@ -556,3 +649,5 @@ export const TOKEN_ALLOWANCE_ALLOWANCE = "999999999999999999999999999";
 export const CORGIB_ALLOWANCE_ALLOWANCE =
   "999999999999999999999999999999999999";
 export const AIBB_ALLOWANCE = "1000000000000000000000000000000000000";
+export const LEUM_ALLOWANCE_ALLOWANCE = "999999999999999999999999999";
+export const $TORM_ALLOWANCE_ALLOWANCE = "999999999999999999999999999";

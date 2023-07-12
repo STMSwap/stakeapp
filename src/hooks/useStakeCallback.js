@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { toWei } from "../utils/helper";
 import useActiveWeb3React from "./useActiveWeb3React";
 import config from "utils/config";
-import STAKE_ABI from "../contracts/abi/PolkaBridgeStaking.json";
+import STAKE_ABI from "../contracts/abi/polygonEVMStaking.json";
 import { writeContract } from "@wagmi/core";
 import { STAKE_ADDRESSES } from "../constants/index";
 import { useWaitForTransaction } from "wagmi";
@@ -18,7 +18,16 @@ export function useStakeCallback(tokenSymbol) {
         setData({ ...data, status: "waiting" });
 
         let stakeRes;
-        if (chainId === config.arbitrumChain) {
+        // if (chainId === config.arbitrumChain) {
+        //   stakeRes = await writeContract({
+        //     address: STAKE_ADDRESSES[chainId || ""],
+        //     abi: STAKE_ABI,
+        //     functionName: "deposit",
+        //     args: [poolId, depositTokens],
+        //     overrides: { gasLimit: 3050000 },
+        //   });
+        // } else {
+           if (chainId === config.nautilusChainTestnet) {
           stakeRes = await writeContract({
             address: STAKE_ADDRESSES[chainId || ""],
             abi: STAKE_ABI,
@@ -26,7 +35,8 @@ export function useStakeCallback(tokenSymbol) {
             args: [poolId, depositTokens],
             overrides: { gasLimit: 3050000 },
           });
-        } else {
+        } 
+        else {
           stakeRes = await writeContract({
             address: STAKE_ADDRESSES[chainId || ""],
             abi: STAKE_ABI,

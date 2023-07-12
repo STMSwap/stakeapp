@@ -3,6 +3,9 @@ import {
   etheriumNetwork,
   moonriverNetwork,
   nullAddress,
+  nautilusTestNetwork,
+  polygonZkEvmTestnetNetwork
+
 } from "../constants/index";
 
 import { factoryContract } from "../contracts/connections";
@@ -30,8 +33,10 @@ export const setupNetwork = async (networkObject) => {
   if (provider) {
     try {
       if (
-        networkObject.chainId === `0x${config.ethChainId.toString(16)}` ||
-        networkObject.chainId === `0x${config.ethChainIdRinkeby.toString(16)}`
+        networkObject.chainId === `0x${config.nautilusChainTestnet.toString(16)}` ||
+        networkObject.chainId === `0x${config.nautilusChainTestnet.toString(16)}`
+        // networkObject.chainId === `0x${config.ethChainId.toString(16)}` ||
+        // networkObject.chainId === `0x${config.ethChainIdRinkeby.toString(16)}`
       ) {
         await provider.request({
           method: "wallet_switchEthereumChain",
@@ -61,12 +66,22 @@ export const getCurrentNetwork = (networkId) => {
     return null;
   }
 
-  if (
-    parseInt(networkId) === config.bscChain ||
-    parseInt(networkId) === config.bscChainTestent
+  // if (
+  //   parseInt(networkId) === config.bscChain ||
+  //   parseInt(networkId) === config.bscChainTestent
+  // ) {
+    if (
+      parseInt(networkId) === config.nautilusChainTestnet ||
+      parseInt(networkId) === config.nautilusChainTestnet
+    ) {
+    return nautilusTestNetwork;
+  }   else if (
+    parseInt(networkId) === config.polygon_zkevm_testnet||
+    parseInt(networkId) === config.polygon_zkevm_testnet
   ) {
-    return bscNetwork;
-  } else if (
+    return polygonZkEvmTestnetNetwork;
+  } else if
+   (
     parseInt(networkId) === config.ethChainId ||
     parseInt(networkId) === config.ethChainIdRinkeby
   ) {
@@ -77,6 +92,6 @@ export const getCurrentNetwork = (networkId) => {
   ) {
     return moonriverNetwork;
   } else {
-    return etheriumNetwork;
+    return nautilusTestNetwork;
   }
 };

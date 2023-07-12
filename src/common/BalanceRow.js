@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { formatCurrency, fromWei } from "../utils/helper";
-import { tokenLogo, tokenName, CORGIB } from "../constants";
+import { tokenLogo, tokenName, LEUM, $TORM} from "../constants";
 import useTokenBalance from "hooks/useTokenBalance";
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +67,7 @@ function BalanceRow({ token }) {
         </div>
       </div>
       <div className={classes.tokenAmount}>
-        {token?.symbol === CORGIB
+        {token?.symbol === $TORM
           ? formatCurrency(fromWei(balance))
           : formatCurrency(fromWei(balance), false, 1, true)}
       </div>

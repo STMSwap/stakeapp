@@ -4,6 +4,8 @@ import { SupportedChainId } from "../constants/chains";
 const NETWORK_POLLING_INTERVALS: { [chainId: number]: number } = {
   [SupportedChainId.MAINNET]: 15000,
   [SupportedChainId.RINKEBY]: 15000,
+  [SupportedChainId.NAUTILUS_TEST]: 15000,
+  [SupportedChainId.POLYGON_ZKEVM]: 15000,
 };
 
 export default function getLibrary(provider: any): Web3Provider {

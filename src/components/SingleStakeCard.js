@@ -12,12 +12,16 @@ import {
   tokenName,
   LABS,
   CORGIB,
+  LEUM,
   tokenAddresses,
   STAKE_ADDRESSES,
   TOKEN_ALLOWANCE_ALLOWANCE,
   CORGIB_ALLOWANCE_ALLOWANCE,
+  LEUM_ALLOWANCE_ALLOWANCE,
   AIBB,
   AIBB_ALLOWANCE,
+  $TORM,
+  $TORM_ALLOWANCE_ALLOWANCE,
 } from "../constants";
 import DotCircle from "./../common/DotCircle";
 import useActiveWeb3React from "../hooks/useActiveWeb3React";
@@ -305,9 +309,12 @@ const Staking = ({
 
   const handleApprove = useCallback(() => {
     let tokenWeiAmountToApprove = TOKEN_ALLOWANCE_ALLOWANCE;
-    if (tokenType === CORGIB) {
-      tokenWeiAmountToApprove = CORGIB_ALLOWANCE_ALLOWANCE;
-    } else if (tokenType === AIBB) {
+    if (tokenType === LEUM) {
+      tokenWeiAmountToApprove = LEUM_ALLOWANCE_ALLOWANCE;
+    } else if (tokenType === $TORM) {
+      tokenWeiAmountToApprove = $TORM_ALLOWANCE_ALLOWANCE;
+    }
+    else if (tokenType === AIBB) {
       tokenWeiAmountToApprove = AIBB_ALLOWANCE;
     }
 

@@ -8,7 +8,9 @@ import {
   harmonyNetwork,
   maticNetwork,
   arbitrum,
+  nautilusTestNetwork,
   tokenPriceConstants,
+  polygonZkEvmTestnetNetwork
 } from "../constants";
 import config from "./config";
 
@@ -103,8 +105,10 @@ export const formatCurrency = (
   if (typeof window.web3 === "undefined") {
     return formatter.format(value ? value : 0).slice(1);
   }
-  const netId = window.ethereum.networkVersion;
-  if (["97", "56"].includes(netId) && !currencyFormat) {
+  // const netId = window.ethereum.networkVersion;
+  // if (["97", "56"].includes(netId) && !currencyFormat) {
+    const netId = window.ethereum.networkVersion;
+    if (["97","56"].includes(netId) && !currencyFormat) {
     // for bsc network only
     return convertToInternationalCurrencySystem(value ? value : 0, formatter);
   }
@@ -185,8 +189,10 @@ export const setupNetwork = async (networkObject) => {
     // const _chainId = parseInt(networkObject.chainId, 10)
     try {
       if (
-        networkObject.chainId === `0x${config.chainId.toString(16)}` ||
-        networkObject.chainId === `0x${config.chainIdTestnet.toString(16)}`
+        networkObject.chainId === `0x${config.nautilusChainTestnet.toString(16)}` ||
+        networkObject.chainId === `0x${config.nautilusChainTestnet.toString(16)}`
+        // networkObject.chainId === `0x${config.chainId.toString(16)}` ||
+        // networkObject.chainId === `0x${config.chainIdTestnet.toString(16)}`
       ) {
         await provider.request({
           method: "wallet_switchEthereumChain",
@@ -212,9 +218,18 @@ export const setupNetwork = async (networkObject) => {
 
 export const getCurrentNetworkName = (networkId) => {
   const _id = parseInt(networkId);
-  if ([config.bscChain, config.bscChainTestent].includes(_id)) {
-    return bscNetwork;
-  } else if (
+  // if ([config.bscChain, config.bscChainTestent].includes(_id)) {
+  //   return bscNetwork;
+  // } else if (
+    if ([config.nautilusChainTestnet].includes(_id)) {
+        return nautilusTestNetwork;
+      }
+      else if (
+        [config.polygon_zkevm_testnet].includes(_id)
+      ) {
+        return  polygonZkEvmTestnetNetwork;
+      }
+       else if (
     [config.polygon_chain_mainnet, config.polygon_chain_testnet].includes(_id)
   ) {
     return maticNetwork;
@@ -223,7 +238,7 @@ export const getCurrentNetworkName = (networkId) => {
   } else if ([config.arbitrumChain, config.arbitrumChain].includes(_id)) {
     return arbitrum;
   } else {
-    return etheriumNetwork;
+    return nautilusTestNetwork;
   }
 };
 
@@ -242,6 +257,7 @@ export const fetchTokenPrice = async (tokenSymbol) => {
     }
 
     const token_id = coingeckoTokenId?.[tokenSymbol];
+    // const token_id = [tokenSymbol];
 
     const priceRes = await axios.get(
       config.coingecko +
